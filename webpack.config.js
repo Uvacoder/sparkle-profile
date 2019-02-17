@@ -13,15 +13,15 @@ module.exports = {
     },
     module: {
       rules: [
-        {
-            enforce: "pre",
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: "eslint-loader",
-            options: {
-                emitError: true
-            }
-        },
+        // {
+        //     enforce: "pre",
+        //     test: /\.js$/,
+        //     exclude: /node_modules/,
+        //     loader: "eslint-loader",
+        //     options: {
+        //         emitError: true
+        //     }
+        // },
         {
           test: /\.js$/,
           exclude: /node_modules/,
@@ -54,12 +54,12 @@ module.exports = {
         chunkFilename: "./css/chunk.css"
       }),
       new CleanWebpackPlugin(["./dist/"]),
-    //   new CopyPlugin([
-    //     {
-    //       from: './dist/main.js',
-    //       to: './dist/js/',
-    //       toType: 'file',
-    //     },
-    //   ]),
+      new CopyPlugin([
+        {
+          from: './src/js/particles.json',
+          to: './dist/js/particles.json',
+          toType: 'file',
+        },
+      ]),
     ]
   };
